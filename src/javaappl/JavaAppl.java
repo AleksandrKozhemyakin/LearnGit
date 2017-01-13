@@ -21,6 +21,7 @@ public class JavaAppl {
 //        Arrays.sort(m);
 //        System.out.println(Arrays.toString(m));
 
+
 //        int z[] = new int[0];
 //        Scanner scanner = new Scanner(System.in);
 //
@@ -40,18 +41,23 @@ public class JavaAppl {
 //            arr.add(scanner.nextInt());
 //            System.out.println(arr);
 //        }
-        String s = "Some string to count chars in it kljsdlf : , ;xz osdir".toLowerCase();
-        Map<Character, Integer> cnt = new TreeMap<Character, Integer>(); //HashMap<Character, Integer>();
-        for (int i = 0; i < s.length(); i++) {
-            char c = s.charAt(i);
-            if (!cnt.containsKey(c)) {
-                cnt.put(c, 1);
+        int m[] = new int[]{12, 33, 10, 1, 2, 33, 22, 12, 7, 6, 7, 77, 7};
+        Map<Integer, Integer> cnt = new TreeMap<Integer, Integer>();
+        for (int i = 0; i < m.length; i++) {
+            int z = m[i];
+            if (!cnt.containsKey(z)) {
+                cnt.put(z, 1);
             } else {
-                int oldInt = cnt.get(c);
-                cnt.put(c,oldInt+1);
+                cnt.put(z, cnt.get(z) + 1);
             }
         }
         System.out.println(cnt);
+        for (Integer t : cnt.keySet()) {
+            for (int n=0;n<cnt.get(t);n++){
+                System.out.print(t);
+            }
+            System.out.print("   ");
+        }
     }
 
 }
