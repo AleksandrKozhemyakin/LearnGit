@@ -5,9 +5,7 @@
  */
 package javaappl;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * @author akozhemyakin
@@ -36,12 +34,24 @@ public class JavaAppl {
 //            z = a1;
 //            System.out.println(Arrays.toString(z));
 //        }
-        Scanner scanner = new Scanner(System.in);
-        ArrayList<Integer> arr = new ArrayList<Integer>();
-        while (scanner.hasNext()) {
-            arr.add(scanner.nextInt());
-            System.out.println(arr);
+//        Scanner scanner = new Scanner(System.in);
+//        ArrayList<Integer> arr = new ArrayList<Integer>();
+//        while (scanner.hasNext()) {
+//            arr.add(scanner.nextInt());
+//            System.out.println(arr);
+//        }
+        String s = "Some string to count chars in it kljsdlf : , ;xz osdir".toLowerCase();
+        Map<Character, Integer> cnt = new TreeMap<Character, Integer>(); //HashMap<Character, Integer>();
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if (!cnt.containsKey(c)) {
+                cnt.put(c, 1);
+            } else {
+                int oldInt = cnt.get(c);
+                cnt.put(c,oldInt+1);
+            }
         }
+        System.out.println(cnt);
     }
 
 }
