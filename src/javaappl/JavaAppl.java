@@ -5,6 +5,7 @@
  */
 package javaappl;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -22,18 +23,24 @@ public class JavaAppl {
 //        Arrays.sort(m);
 //        System.out.println(Arrays.toString(m));
 
-        int z[] = new int[0];
+//        int z[] = new int[0];
+//        Scanner scanner = new Scanner(System.in);
+//
+//        while (scanner.hasNext()) {
+//            int q = scanner.nextInt();
+//            int a1[] = new int[z.length + 1];
+//            for (int i = 0; i < z.length; i++) {
+//                a1[i] = z[i];
+//            }
+//            a1[a1.length - 1] = q;
+//            z = a1;
+//            System.out.println(Arrays.toString(z));
+//        }
         Scanner scanner = new Scanner(System.in);
-
+        ArrayList<Integer> arr = new ArrayList<Integer>();
         while (scanner.hasNext()) {
-            int q = scanner.nextInt();
-            int a1[] = new int[z.length + 1];
-            for (int i = 0; i < z.length; i++) {
-                a1[i] = z[i];
-            }
-            a1[a1.length - 1] = q;
-            z = a1;
-            System.out.println(Arrays.toString(z));
+            arr.add(scanner.nextInt());
+            System.out.println(arr);
         }
     }
 
