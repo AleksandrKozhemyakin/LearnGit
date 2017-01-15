@@ -5,45 +5,107 @@
  */
 package javaappl;
 
+import javax.xml.xpath.XPathException;
 import java.util.*;
+import java.io.*;
 
 /**
  * @author akozhemyakin
  */
 public class JavaAppl {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException, XPathException {
+        String folderpath = "C:\\Temp\\";
+        String filename = "test.txt";
+        System.out.println(folderpath + filename);
+        File fld = new File(folderpath);
+            System.out.println(Arrays.asList(fld.list()));
+    }
+}
+//
+//        try (InputStream f = new FileInputStream(folder + filename)
+//        ){
+//            File fi = new File(folder + filename);
+//            if(!fi.isDirectory()){
+//                System.out.println("length of File = " + fi.length());
+//                System.out.println(Arrays.asList(f.list()));
+//            }
+//            while (true) {
+//                int c = f.read();
+//                if (c == -1) break;
+//                System.out.print((char) c);
+//            }
+//        } catch (IOException e) {
+//            System.out.println("ERROR!!! - Check file " + (folder + filename));
+//        }
+//    }
 
-        ArrayList<Person> persons = new ArrayList<Person>();
-        Person pA = new Person();
-        pA.name = "Alex";
-        pA.age = 18;
-        pA.male = true;
-        pA.print();
 
-        Person pB = new Person();
-        pB.name = "Mary";
-        pB.age = 18;
-        pB.male = false;
-        pB.print();
+//        public static void main(String[] arg) throws IOException{
+//            BufferedReader reader = new BufferedReader(new FileReader("input.txt")); //входной файл
+//            BufferedWriter writer = new BufferedWriter(new FileWriter("output.txt")); //выходной файл
+//            StringBuffer sb = new StringBuffer();//буфер для входного текста
+//            StringBuffer rez = new StringBuffer();//буфер для обработанного текста
+//            int startPos = 0, endPos = 0, i = 0;
+//
+//            while (true){//цикл для вычитывания файла
+//                String buffer = reader.readLine();
+//                if (buffer == null){
+//                    break;
+//                }
+//                sb.append(buffer + "\n");//заполняем буфер вычитанным текстом
+//            }
+//
+//            while (i < sb.length()){//начало обработки
+//                if(Character.isDigit(sb.charAt(i))){//если символ число
+//                    startPos = i;
+//                    while (Character.isDigit(sb.charAt(i))){
+//                        i++;
+//                    }
+//                    endPos = i;
+//                    rez.append("(" + sb.toString().substring(startPos, endPos) + ")");//заполняем выходной буфер
+//                }
+//                else{
+//                    rez.append(sb.charAt(i));//если символ не число
+//                }
+//                i++;
+//            }
+//            writer.write(rez.toString());//пишем в файл обработанный текст
+//            System.out.println(rez.toString());
+//            writer.flush();//закрываем потоки i/o, лучше бы все это запихнуть в try/finally
+//            writer.close();
+//            reader.close();
+//        }
+//    }
 
-        persons.add(pA);
-        persons.add(pB);
-        Collections.sort(persons);
-        System.out.println(persons.toString());
-
-        TaxPayer pT = new TaxPayer();
-        pT.name = "Tester";
-        pT.age = 50;
-        pT.male = true;
-        pT.salary = 10000;
-        pT.savings = -100;
-        pT.print();
 
 //        \/---OLD code---\/
+//        ArrayList<Person> persons = new ArrayList<Person>();
+//        Person pA = new Person();
+//        pA.name = "Alex";
+//        pA.age = 18;
+//        pA.male = true;
+//        pA.print();
+//
+//        Person pB = new Person();
+//        pB.name = "Mary";
+//        pB.age = 18;
+//        pB.male = false;
+//        pB.print();
+//
+//        persons.add(pA);
+//        persons.add(pB);
+//        Collections.sort(persons);
+//        System.out.println(persons.toString());
+//
+//        TaxPayer pT = new TaxPayer();
+//        pT.name = "Tester";
+//        pT.age = 50;
+//        pT.male = true;
+//        pT.salary = 10000;
+//        pT.savings = -100;
+//        pT.print();
+//
 //        int m[] = new int[]{11, 3, 5, 77};
 //        Arrays.sort(m);
 //        System.out.println(Arrays.toString(m));
@@ -85,6 +147,6 @@ public class JavaAppl {
 //            }
 //            System.out.print("   ");
 
-    }
 
-}
+
+
