@@ -12,16 +12,55 @@ import java.io.*;
 /**
  * @author akozhemyakin
  */
-public class JavaAppl {
 
-    public static void main(String[] args) throws IOException, XPathException {
-        String folderpath = "C:\\Temp\\";
-        String filename = "test.txt";
-        System.out.println(folderpath + filename);
-        File fld = new File(folderpath);
-            System.out.println(Arrays.asList(fld.list()));
+public class JavaAppl {
+    static int compare(File f1, File f2) throws IOException {
+        try(FileInputStream fis1 = new FileInputStream(f1);
+            FileInputStream fis2 = new FileInputStream(f2);){
+
+                while (true) {
+                    int b1 = fis1.read();
+                    int b2 = fis2.read();
+                    if (b1 == -1 && b2 == -1) {
+                        return 0;
+                    }
+                    if (b1 != b2) return b1 - b2;
+                }
+            }
+        }
+
+    public static void main(String[] args) throws IOException {
+        File dirname = new File("C:\\TEMP");
+        File[] files = dirname.listFiles(new FileFilter() {
+            @Override
+            public boolean accept(File dirname) {
+                return dirname.isFile();
+            }
+        });
+        for (int i = 0; i < files.length; i++) {
+            for (int j = i + 1; j < files.length; j++) {
+                if (compare(files[i], files[j]) == 0)
+                    System.out.println("Files " + files[i] + " and " + files[j] + " are identical");
+            }
+        }
     }
 }
+
+//    String dirname = "C:\\Temp\\";
+//    String extentionfilter = "txt";
+//    File f = new File(dirname);
+//        if (f.isDirectory()) {
+//                System.out.println("Каталог: " + dirname);
+//                FilenameFilter only = new OnlyExt(extentionfilter);
+//                String s[] = f.list(only);
+//                for (int i = 0; i < s.length; i++) {
+//        System.out.println(s[i]);
+//        }
+//        } else {
+//        System.out.println(dirname + " is not a directory!");
+//        }
+
+
 //
 //        try (InputStream f = new FileInputStream(folder + filename)
 //        ){
